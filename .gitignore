@@ -5,3 +5,4 @@ tmp
 .changelog
 coverage
 .env
+.DS_Store
