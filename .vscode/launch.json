@@ -13,15 +13,16 @@
 			"console": "integratedTerminal",
 		},
 		{
-			"name": "Migration - Create Plans",
+			"name": "Migration - Create Admin user",
 			"type": "node",
 			"request": "launch",
 			"runtimeExecutable": "node",
 			"runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
-			"args": ["src/migration/plan/create-plans.ts"],
+			"args": ["src/migration/admin-user.ts"],
 			"cwd": "${workspaceRoot}",
 			"internalConsoleOptions": "openOnSessionStart",
-			"skipFiles": ["<node_internals>/**", "node_modules/**"]
+			"skipFiles": ["<node_internals>/**", "node_modules/**"],
+			"envFile": "${workspaceFolder}/.env",
 		  }
 	]
 }
