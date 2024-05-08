@@ -1,19 +1,20 @@
 import { AppError } from "../../dtos/error";
 import jwt from 'jsonwebtoken';
-import { JwtPayload, authenticateUserDTO, authenticatedObject } from "../../dtos/auth";
+import { authenticateUserDTO, authenticatedObject, sessionUserToken } from "../../dtos/auth";
 import User, { UserDTO } from "../../models/user";
+import { TIME_TO_EXPIRES } from "../../constants";
 
 const bcrypt = require('bcryptjs');
 const secret = process.env.SECRET;
 
 function generateToken(params: any) {
 	const token = jwt.sign(params, secret, {
-		expiresIn: 60 * 60 * 24 * 14 // two weeks
+		expiresIn: TIME_TO_EXPIRES // two weeks
 	});
 	return token;
 }
 
-function generateSessionObject(user: UserDTO) {
+function generateSessionObject(user: UserDTO): sessionUserToken {
 	const id = user._id.toString();
 	return {
 		_id: id,

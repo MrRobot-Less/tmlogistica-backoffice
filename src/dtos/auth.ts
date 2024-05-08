@@ -1,10 +1,6 @@
 import { z } from "zod";
 import { UserDTO } from "../models/user";
 
-export type JwtPayload = {
-	id: string
-}
-
 export const registerUserSchema = {
     email: z.string().regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
     name: z.string().regex(/^[a-zA-Z\s]{3,}$/),
@@ -25,3 +21,12 @@ export type authenticateUserDTO = z.infer<typeof authenticateUserObject>;
 export type authenticatedObject = Omit<UserDTO, 'createdAt' | 'password'> & {
 	token: string
 };
+
+export type sessionUserToken = {
+	_id: string,
+	email: string,
+	name: string,
+	token: string
+}
+
+export type JwtPayload = sessionUserToken;
