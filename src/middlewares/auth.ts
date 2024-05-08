@@ -23,6 +23,7 @@ export default function authMiddleware(req: Request, res: Response, next: NextFu
 	const callback : jwt.VerifyCallback<string | jwt.JwtPayload | JwtPayload> = (err, decoded) => {
 		if (err) return errorHandleAuth();
 		req.user = (decoded as JwtPayload);
+		res.locals.user = req.user;
 		return next();
 	}
 

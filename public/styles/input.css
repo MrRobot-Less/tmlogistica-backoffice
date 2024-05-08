@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.toast {
+	top: 12px;
+	right: -220px;
+	position: absolute;
+	transition: all .5s ease;
+}
+.toast-on {
+	right: 12px;
+}

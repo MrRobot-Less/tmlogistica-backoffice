@@ -4,10 +4,12 @@
 	"main": "index.js",
 	"license": "MIT",
 	"dependencies": {
+		"autoprefixer": "^10.4.19",
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.20.2",
 		"connect-flash": "^0.1.1",
 		"cookie-parser": "^1.4.6",
+		"cssnano": "^7.0.1",
 		"express": "^4.18.2",
 		"express-session": "^1.18.0",
 		"jsonwebtoken": "^9.0.2",
@@ -15,6 +17,7 @@
 		"moment": "^2.29.4",
 		"mongoose": "^8.0.3",
 		"nunjucks": "^3.2.4",
+		"postcss-cli": "^11.0.0",
 		"zod": "^3.22.4"
 	},
 	"devDependencies": {
@@ -30,6 +33,10 @@
 	},
 	"scripts": {
 		"dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-		"build": "tsc"
+		"tailwind": "npx tailwindcss -i public/styles/input.css -o public/styles/main.min.css",
+		"autoprefixer": "postcss public/styles/input.css -u autoprefixer --no-map -o public/styles/main.min.css",
+		"minify": "postcss public/styles/input.css -u cssnano --no-map -o public/styles/main.min.css",
+		"build": "npm run tailwind && npm run autoprefixer && tsc",
+		"production": "npm run tailwind && npm run autoprefixer && npm run minify"
 	}
 }
