@@ -7,7 +7,6 @@ const router = Router();
 router.get(
 	'/',
 	(req, res) => {
-		var test = req.ctx;
 		if (req.user) { return res.redirect(PATH.dashboard); }
 		res.render("login", { error: req.flash('error_msg') });
 	}

@@ -18,7 +18,12 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(session({ cookie: { maxAge: 6000000 }, secret: process.env.SECRET }));
+app.use(session({
+    cookie: { maxAge: 6000000 },
+    secret: process.env.SECRET,
+    saveUninitialized: false,
+    resave: false
+}));
 app.use(flash());
 
 // Config da template engine.

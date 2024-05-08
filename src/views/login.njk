@@ -1,6 +1,6 @@
 {% extends "templates/base.njk" %}
 {% block contents %}
-    <h1>Login {{ error }}</h1>
+    <h1 class="text-3xl font-bold underline">Login {{ error }}</h1>
     <form method="post">
         <input type="email" name="email" placeholder="Seu email.">
         <input type="password" placeholder="Sua senha" name="password">
