@@ -17,6 +17,7 @@
 		"moment": "^2.29.4",
 		"mongoose": "^8.0.3",
 		"nunjucks": "^3.2.4",
+		"postcss": "^8.4.38",
 		"postcss-cli": "^11.0.0",
 		"zod": "^3.22.4"
 	},
@@ -32,11 +33,8 @@
 		"typescript": "^5.3.3"
 	},
 	"scripts": {
+		"tailwind:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css",
 		"dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-		"tailwind": "npx tailwindcss -i public/styles/input.css -o public/styles/main.min.css",
-		"autoprefixer": "postcss public/styles/input.css -u autoprefixer --no-map -o public/styles/main.min.css",
-		"minify": "postcss public/styles/input.css -u cssnano --no-map -o public/styles/main.min.css",
-		"build": "npm run tailwind && npm run autoprefixer && tsc",
 		"production": "npm run tailwind && npm run autoprefixer && npm run minify"
 	}
 }
