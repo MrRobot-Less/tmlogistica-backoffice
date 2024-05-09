@@ -935,6 +935,16 @@ video {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.toast {
+	top: 12px;
+	right: -220px;
+	position: absolute;
+	transition: all .5s ease;
+}
+.toast-on {
+	right: 12px;
+}
 .placeholder\:text-transparent::-moz-placeholder {
   color: transparent;
 }

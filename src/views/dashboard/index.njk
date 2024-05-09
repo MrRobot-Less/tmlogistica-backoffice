@@ -1,0 +1,119 @@
+{% extends "templates/dashboard-template.njk" %}
+{% block contentpage %}
+	{{ super() }}
+	<div class="relative max-w-md w-full">
+		<div class="absolute top-1 left-2 inline-flex items-center p-2">
+			<i class="fas fa-search text-gray-400"></i>
+		</div>
+		<input class="w-full h-10 pl-10 pr-4 py-1 text-base placeholder-gray-500 border rounded-full focus:shadow-outline" type="search" placeholder="Buscar...">
+	</div>
+	<div class="mt-8 grid grid-cols-1 lg:grid-cols-2 space-x-0 space-y-2 lg:space-x-4 lg:space-y-0">
+		<div class="w-full bg-white p-4 shadow rounded-lg">
+			<h2 class="text-gray-500 text-lg font-semibold pb-1">Usuários</h2>
+			<div class="my-1"></div> 
+			<div class="bg-gradient-to-r from-cyan-300 to-cyan-500 h-px mb-6"></div> 
+			<div class="chart-container" style="position: relative; height:150px; width:100%">
+				
+				<canvas id="usersChart"></canvas>
+			</div>
+		</div>
+		<div class="w-full bg-white p-4 shadow rounded-lg">
+			<h2 class="text-gray-500 text-lg font-semibold pb-1">Comercial</h2>
+			<div class="my-1"></div> 
+			<div class="bg-gradient-to-r from-cyan-300 to-cyan-500 h-px mb-6"></div> 
+			<div class="chart-container" style="position: relative; height:150px; width:100%">
+				
+				<canvas id="commercesChart"></canvas>
+			</div>
+		</div>
+	</div>
+	<div class="mt-8 bg-white p-4 shadow rounded-lg">
+		<h2 class="text-gray-500 text-lg font-semibold pb-4">Autorizações pendentes</h2>
+		<div class="my-1"></div> 
+		<div class="bg-gradient-to-r from-cyan-300 to-cyan-500 h-px mb-6"></div> 
+		<table class="w-full table-auto text-sm">
+			<thead>
+				<tr class="text-sm leading-normal">
+					<th class="py-2 px-4 bg-grey-lightest font-bold uppercase text-sm text-grey-light border-b border-grey-light">Nome</th>
+					<th class="py-2 px-4 bg-grey-lightest font-bold uppercase text-sm text-grey-light border-b border-grey-light">Rol</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="hover:bg-grey-lighter">
+					<td class="py-2 px-4 border-b border-grey-light">Juan Pérez</td>
+					<td class="py-2 px-4 border-b border-grey-light">Comercio</td>
+				</tr>
+				
+				<tr class="hover:bg-grey-lighter">
+					<td class="py-2 px-4 border-b border-grey-light">María Gómez</td>
+					<td class="py-2 px-4 border-b border-grey-light">Usuario</td>
+				</tr>
+				</tr>
+				<tr class="hover:bg-grey-lighter">
+					<td class="py-2 px-4 border-b border-grey-light">Carlos López</td>
+					<td class="py-2 px-4 border-b border-grey-light">Usuario</td>
+				</tr>
+				<tr class="hover:bg-grey-lighter">
+					<td class="py-2 px-4 border-b border-grey-light">Laura Torres</td>
+					<td class="py-2 px-4 border-b border-grey-light">Comercio</td>
+				</tr>
+				<tr class="hover:bg-grey-lighter">
+					<td class="py-2 px-4 border-b border-grey-light">Ana Ramírez</td>
+					<td class="py-2 px-4 border-b border-grey-light">Usuario</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="text-right mt-4">
+			<button class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded">
+				Ver mais
+			</button>
+		</div>
+	</div>
+	<script>
+
+	var usersChart = new Chart(document.getElementById('usersChart'), {
+		type: 'doughnut',
+		data: {
+			labels: ['Nuevos', 'Registrados'],
+			datasets: [{
+				data: [30, 65],
+				backgroundColor: ['#00F0FF', '#8B8B8D'],
+			}]
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom'
+			}
+		}
+	});
+
+
+	var commercesChart = new Chart(document.getElementById('commercesChart'), {
+		type: 'doughnut',
+		data: {
+			labels: ['Nuevos', 'Registrados'],
+			datasets: [{
+				data: [60, 40],
+				backgroundColor: ['#FEC500', '#8B8B8D'],
+			}]
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom'
+			}
+		}
+	});
+
+
+	const menuBtn = document.getElementById('menuBtn');
+	const sideNav = document.getElementById('sideNav');
+
+	menuBtn.addEventListener('click', () => {
+		sideNav.classList.toggle('hidden');
+	});
+	</script>
+{% endblock %}
