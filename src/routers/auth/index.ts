@@ -28,4 +28,16 @@ router.post(
 	}
 );
 
+router.get(
+	'/logout',
+	(req, res) => {
+		if (!req.user) { return res.redirect(PATH.login); }
+		req.session.destroy(() => {
+			res.redirect(PATH.login);
+		});
+	}
+);
+
+
+
 export default router;
