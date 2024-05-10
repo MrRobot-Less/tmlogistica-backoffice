@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./src/views/**/*.{html,njk}'],
   theme: {
-    
+    extend: {
+      height: {
+        'dashboard-height': 'calc(100dvh - 5rem)'
+      }
+    }
   },
   plugins: [
     {

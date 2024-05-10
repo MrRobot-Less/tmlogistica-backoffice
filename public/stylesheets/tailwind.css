@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--dashboard-height: calc(100dvh - 5rem);
+}
+
 .toast {
 	top: 12px;
 	right: -220px;
