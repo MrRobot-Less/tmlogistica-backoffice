@@ -12,7 +12,7 @@ const PORT = process.env.SERVER_PORT || 3000;
 const app = express();
 
 // Configurando a pasta public.
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
 // decoded
 app.use(bodyParser.urlencoded({ extended: false }));

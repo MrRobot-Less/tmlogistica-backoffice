@@ -9,4 +9,25 @@ router.get(
 	}
 );
 
+router.get(
+	'/calc',
+	(req, res) => {
+		res.render("dashboard/calc");
+	}
+);
+
+router.get(
+	'/requests',
+	(req, res) => {
+		res.render("dashboard/requests");
+	}
+);
+
+router.get(
+	'/users',
+	(req, res) => {
+		res.render("dashboard/users");
+	}
+);
+
 export default router;
