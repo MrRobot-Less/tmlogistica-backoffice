@@ -1,32 +1,29 @@
 import { Router } from 'express';
+import { PATH } from '../../constants';
 
 const router = Router();
 
 router.get(
 	'/',
 	(req, res) => {
-		res.render("dashboard/index");
-	}
-);
-
-router.get(
-	'/calc',
-	(req, res) => {
-		res.render("dashboard/calc");
+		return res.redirect(PATH.calc);
+		// res.render("dashboard/index");
 	}
 );
 
 router.get(
 	'/requests',
 	(req, res) => {
-		res.render("dashboard/requests");
+		return res.redirect(PATH.calc);
+		// res.render("dashboard/requests");
 	}
 );
 
 router.get(
 	'/users',
 	(req, res) => {
-		res.render("dashboard/users");
+		return res.redirect(PATH.calc);
+		// res.render("dashboard/users");
 	}
 );
 
