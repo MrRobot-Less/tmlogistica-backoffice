@@ -1,0 +1,440 @@
+[
+	{
+	  "initialPostalCode": 1000000,
+	  "finalPostalCode": 1099999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 1100000,
+	  "finalPostalCode": 1199999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 1200000,
+	  "finalPostalCode": 1299999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 1300000,
+	  "finalPostalCode": 1399999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 1400000,
+	  "finalPostalCode": 1499999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 1500000,
+	  "finalPostalCode": 1599999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 2000000,
+	  "finalPostalCode": 2099999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 2100000,
+	  "finalPostalCode": 2199999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 2200000,
+	  "finalPostalCode": 2299999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 2300000,
+	  "finalPostalCode": 2399999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 2400000,
+	  "finalPostalCode": 2499999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 2500000,
+	  "finalPostalCode": 2599999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 2600000,
+	  "finalPostalCode": 2699999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 2700000,
+	  "finalPostalCode": 2799999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 2800000,
+	  "finalPostalCode": 2849999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 2900000,
+	  "finalPostalCode": 2999999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 3000000,
+	  "finalPostalCode": 3099999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 3100000,
+	  "finalPostalCode": 3199999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 3200000,
+	  "finalPostalCode": 3299999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 3300000,
+	  "finalPostalCode": 3399999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 3400000,
+	  "finalPostalCode": 3499999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 3500000,
+	  "finalPostalCode": 3599999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 3600000,
+	  "finalPostalCode": 3699999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 3700000,
+	  "finalPostalCode": 3799999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 3800000,
+	  "finalPostalCode": 3899999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 3900000,
+	  "finalPostalCode": 3999999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 4000000,
+	  "finalPostalCode": 4099999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 4100000,
+	  "finalPostalCode": 4199999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 4200000,
+	  "finalPostalCode": 4299999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 4300000,
+	  "finalPostalCode": 4399999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 4500000,
+	  "finalPostalCode": 4599999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 4600000,
+	  "finalPostalCode": 4699999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 4700000,
+	  "finalPostalCode": 4799999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 4800000,
+	  "finalPostalCode": 4808999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 5000000,
+	  "finalPostalCode": 5099999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 5100000,
+	  "finalPostalCode": 5199999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 5300000,
+	  "finalPostalCode": 5399999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 5400000,
+	  "finalPostalCode": 5499999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 5500000,
+	  "finalPostalCode": 5599999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 5600000,
+	  "finalPostalCode": 5699999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 5700000,
+	  "finalPostalCode": 5799999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 6000000,
+	  "finalPostalCode": 6099999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 6100000,
+	  "finalPostalCode": 6199999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 6200000,
+	  "finalPostalCode": 6299999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 6300000,
+	  "finalPostalCode": 6399999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 6400000,
+	  "finalPostalCode": 6499999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 6600000,
+	  "finalPostalCode": 6699999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 6700000,
+	  "finalPostalCode": 6720999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 6750000,
+	  "finalPostalCode": 6799999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 6800000,
+	  "finalPostalCode": 6849999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 7000000,
+	  "finalPostalCode": 7099999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 7100000,
+	  "finalPostalCode": 7199999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 7200000,
+	  "finalPostalCode": 7299999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 7400000,
+	  "finalPostalCode": 7499999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 7700000,
+	  "finalPostalCode": 7799999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 8000000,
+	  "finalPostalCode": 8099999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 8100000,
+	  "finalPostalCode": 8199999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 8200000,
+	  "finalPostalCode": 8299999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 8300000,
+	  "finalPostalCode": 8399999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 8400000,
+	  "finalPostalCode": 8499999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 8500000,
+	  "finalPostalCode": 8569999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 8570000,
+	  "finalPostalCode": 8599999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 9000000,
+	  "finalPostalCode": 9099999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 9100000,
+	  "finalPostalCode": 9138999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 9170000,
+	  "finalPostalCode": 9199999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 9200000,
+	  "finalPostalCode": 9299999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 9300000,
+	  "finalPostalCode": 9399999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 9500000,
+	  "finalPostalCode": 9599999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 9600000,
+	  "finalPostalCode": 9699999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 9700000,
+	  "finalPostalCode": 9799999,
+	  "digit": 0,
+	  "type": "SP1"
+	},
+	{
+	  "initialPostalCode": 9800000,
+	  "finalPostalCode": 9820999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 9850000,
+	  "finalPostalCode": 9899999,
+	  "digit": 0,
+	  "type": "SP2"
+	},
+	{
+	  "initialPostalCode": 9900000,
+	  "finalPostalCode": 9915999,
+	  "digit": 0,
+	  "type": "SP2"
+	}
+]
