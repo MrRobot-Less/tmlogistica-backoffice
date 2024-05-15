@@ -1,10 +1,19 @@
+import { ObjectId } from "mongoose";
 import mongoose from "../database";
 
 export interface CoverageDTO {
 	_id: string;
 	initialPostalCode: number;
 	finalPostalCode: number;
+	digit: number;
 	type: string;
+}
+
+export interface CoverageFormat {
+	_id: string;
+	initialPostalCode: string;
+	finalPostalCode: string;
+	type: string;	
 }
 
 const CoverageSchema = new mongoose.Schema({

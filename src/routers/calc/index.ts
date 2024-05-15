@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import { PATH } from '../../constants';
+import Coverage from '../../models/coverage';
+import { CalcService } from './service';
 
 const router = Router();
 
@@ -14,7 +16,11 @@ router.get(
 router.get(
 	'/calc/coverage',
 	(req, res) => {
-		res.render("dashboard/calc/coverage/index");
+		CalcService.shipping.getAll((error, coverages) => {
+			CalcService.shipping.format(coverages, (_err, object) => {
+				res.render("dashboard/calc/coverage/index", { coverages: object });
+			});
+		});
 	}
 );
 
