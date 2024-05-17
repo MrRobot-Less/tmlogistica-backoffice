@@ -1,4 +1,3 @@
-import { ObjectId } from "mongoose";
 import mongoose from "../database";
 
 export interface CoverageDTO {

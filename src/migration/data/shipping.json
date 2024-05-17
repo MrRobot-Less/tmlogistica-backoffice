@@ -1,0 +1,58 @@
+[
+	{
+	  "type": "SP1",
+	  "name": "SameDay",
+	  "deliveryTime": 0,
+	  "percentageInsurance": 2.4,
+	  "arrivesInSaturday": true
+	},
+	{
+	  "type": "SP2",
+	  "name": "SameDay",
+	  "deliveryTime": 0,
+	  "arrivesInSaturday": true,
+	  "percentageInsurance": 2.4
+	},
+	{
+	  "type": "SP1",
+	  "name": "NextDay",
+	  "deliveryTime": 0.5,
+	  "arrivesInSaturday": true,
+	  "percentageInsurance": 2.4
+	},
+	{
+	  "type": "SP2",
+	  "name": "NextDay",
+	  "deliveryTime": 0.5,
+	  "arrivesInSaturday": true,
+	  "percentageInsurance": 2.4
+	},
+	{
+	  "type": "SP1",
+	  "name": "SameDay (AC 10KG)",
+	  "deliveryTime": 0,
+	  "arrivesInSaturday": true,
+	  "percentageInsurance": 2.4
+	},
+	{
+	  "type": "SP2",
+	  "name": "SameDay (AC 10KG)",
+	  "deliveryTime": 0,
+	  "arrivesInSaturday": true,
+	  "percentageInsurance": 2.4
+	},
+	{
+	  "type": "SP1",
+	  "name": "NextDay (AC 10KG)",
+	  "deliveryTime": 0.5,
+	  "percentageInsurance": 2.4,
+	  "arrivesInSaturday": true
+	},
+	{
+	  "type": "SP2",
+	  "name": "NextDay (AC 10KG)",
+	  "deliveryTime": 0.5,
+	  "arrivesInSaturday": true,
+	  "percentageInsurance": 2.4
+	}
+]
