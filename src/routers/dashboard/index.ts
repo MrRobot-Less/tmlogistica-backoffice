@@ -1,7 +1,9 @@
 import { Router } from 'express';
 import { PATH } from '../../constants';
+import authRequiredMiddleware from '../../middlewares/auth-required';
 
 const router = Router();
+router.use(authRequiredMiddleware);
 
 router.get(
 	'/',
