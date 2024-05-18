@@ -2,18 +2,20 @@ import mongoose from "../database";
 
 export interface ShippingDTO {
 	_id: string;
-	initialPostalCode: number;
-	finalPostalCode: number;
-	digit: number;
 	type: string;
-}
+	name: string;
+	deliveryTime: number;
+	percentageInsurance: number;
+	arrivesInSaturday: boolean;
+};
 
-export interface ShippingFormat {
-	_id: string;
-	initialPostalCode: string;
-	finalPostalCode: string;
-	type: string;	
-}
+export interface ShippingRequest {
+	type: string;
+	name: string;
+	deliveryTime: string;
+	percentageInsurance: string;
+	arrivesInSaturday: 'yes' | 'no';
+};
 
 const ShippingSchema = new mongoose.Schema({
 	
@@ -38,11 +40,7 @@ const ShippingSchema = new mongoose.Schema({
 		required: true
 	},
 	methodPrices: {
-		type: [{
-			initialWeight : Number,
-			finalWeight : Number,
-			value : Number
-		}],
+		type: [mongoose.Schema.Types.ObjectId],
 		default: []
 	}
 }, {

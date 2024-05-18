@@ -24,14 +24,14 @@
             <div class="bg-gradient-to-r from-blue-300 to-blue-500 h-px mt-2"></div>
             <p class="mb-1 px-5 py-3 text-left text-xs text-blue-500">Copyright MrRobot@2024</p>
         </div>
-        <div class="flex-1 w-full h-full md:w-1/2 overflow-y-scroll">
+        <div class="flex-1 w-full md:w-1/2 overflow-y-scroll">
             {% if success_msg.length %}
             <span class="block font-medium px-4 py-3 text-center w-full bg-green-500/45 text-white">{{ success_msg }}</span>
             {% endif %}
             {% if error_msg.length %}
             <span class="block font-medium px-4 py-3 text-center w-full bg-red-500/45 text-white">{{ error_msg }}</span>
             {% endif %}
-            <div class="flex-1 p-4 w-full h-full">
+            <div class="flex-1 p-4 w-full">
                 {% block contentpage %}
                 {% endblock %}
             </div>

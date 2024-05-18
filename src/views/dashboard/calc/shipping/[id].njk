@@ -1,0 +1,48 @@
+{% extends "templates/dashboard-template.njk" %}
+{% block contentpage %}
+<form method="post" class="">
+	<div class="block md:max-w-3xl mx-auto bg-white p-10 rounded-md *:py-2.5">
+		<div>
+			<label for="name" class="block text-sm text-gray-900 font-bold">Nome</label>
+			<input value="{{ shipping.name }}" name="name" id="name" required="true" type="text" autocomplete="N/A" class="border block w-full rounded-md py-1 px-2 shadow-sm focus:border-sky-500">
+		</div>
+		<div>
+			<label for="deliveryTime" class="block text-sm text-gray-900 font-bold">Tempo de entrega (dias)</label>
+			<input value="{{ shipping.deliveryTime }}" name="deliveryTime" id="deliveryTime" required="true" type="text" autocomplete="N/A" class="border block w-full rounded-md py-1 px-2 shadow-sm focus:border-sky-500">
+		</div>
+		<div>
+			<label for="percentageInsurance" class="block text-sm text-gray-900 font-bold">Seguro (%)</label>
+			<input value="{{ shipping.percentageInsurance }}" name="percentageInsurance" id="percentageInsurance" required="true" type="text" autocomplete="N/A" class="border block w-full rounded-md py-1 px-2 shadow-sm focus:border-sky-500">
+		</div>
+		<div class="space-y-1">
+			<legend class="block text-sm text-gray-900 font-bold">Entrega aos sabados?</legend>
+			<input id="true" class="peer/true" value="yes" type="radio" name="arrivesInSaturday" {% if shipping.arrivesInSaturday %}checked{% endif %} />
+			<label for="true" class="peer-checked/true:text-blue-500">Sim</label>
+
+			<input id="false" class="peer/false" value="no" type="radio" name="arrivesInSaturday" {% if not shipping.arrivesInSaturday %}checked{% endif %}/>
+			<label for="false" class="peer-checked/false:text-blue-500">Não</label>
+
+			<div class="hidden peer-checked/true:block text-xs">Serviço aos sábados ficará habilitado!</div>
+			<div class="hidden peer-checked/false:block text-xs">Serviço aos sábados ficará indisponível</div>
+		</div>	
+		<div>
+			<label for="type" class="block text-sm text-gray-900 font-bold">Zona</label>
+			<select name="type" id="type" class="bg-gray-50 border text-gray-900 text-sm rounded-lg ring-blue-500 border-blue-500 block w-full p-2.5 max-w-32">
+				<option value="SP1" {% if shipping.type === 'SP1' or not shipping.type %} selected {% endif %}>SP1</option>
+				<option value="SP2" {% if shipping.type === 'SP2'%} selected {% endif %}>SP2</option>
+			</select>
+		</div>
+		<div class="border-t border-gray-200 flex space-x-2 justify-end">
+			<button class="w-fit bg-blue-500 py-2 px-2.5 rounded transition duration-200 bg-gradient-to-r hover:from-blue-600 hover:to-blue-600 text-white" type="submit">
+				<i class="fas fa-save"></i><span class="ml-2 max-lg:hidden">{% if shipping %}Salvar{%else%}Adicionar{% endif%}</span>
+			</button>
+			{% if shipping %}
+			<a class="w-fit bg-red-500 py-2 px-2.5 rounded transition duration-200 bg-gradient-to-r hover:from-red-800 hover:to-red-800 text-white" href="/dashboard/calc/shipping/{{shipping._id}}/delete">
+				<i class="fas fa-trash"></i><span class="ml-2 max-lg:hidden">Excluir</span>
+			</a>
+			{% endif %}
+		</div>
+	</div>
+</form>
+
+{% endblock %}
