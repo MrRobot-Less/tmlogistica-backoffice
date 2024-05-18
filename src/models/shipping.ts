@@ -7,6 +7,7 @@ export interface ShippingDTO {
 	deliveryTime: number;
 	percentageInsurance: number;
 	arrivesInSaturday: boolean;
+	methodPrices: String[] | []
 };
 
 export interface ShippingRequest {
@@ -15,6 +16,7 @@ export interface ShippingRequest {
 	deliveryTime: string;
 	percentageInsurance: string;
 	arrivesInSaturday: 'yes' | 'no';
+	methodPrices: String[] | [];
 };
 
 const ShippingSchema = new mongoose.Schema({

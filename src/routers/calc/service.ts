@@ -90,7 +90,8 @@ export const CalcService = {
 				deliveryTime: parseFloat(data.deliveryTime),
 				name: data.name,
 				percentageInsurance: parseFloat(data.percentageInsurance),
-				type: data.type
+				type: data.type,
+				methodPrices: data.methodPrices || []
 			}
 			Shipping.findOneAndUpdate({ _id: id }, shipping)
 				.then(shipping => {
@@ -103,7 +104,8 @@ export const CalcService = {
 				deliveryTime: parseFloat(data.deliveryTime),
 				name: data.name,
 				percentageInsurance: parseFloat(data.percentageInsurance),
-				type: data.type
+				type: data.type,
+				methodPrices: data.methodPrices || []
 			}
 			Shipping.create(shipping)
 				.then(shipping => cb(null, shipping?.toJSON() || null))
@@ -118,7 +120,7 @@ export const CalcService = {
 	},
 	methodPrice: {
 		getAll: function(cb: (error: AppError | null, methodPrice: MethodPriceDTO[]) => void) {
-			MethodPrice.find({})
+			MethodPrice.find({}).sort({ initialWeight: 1 })
 				.then(prices => cb(null, prices.map(prices => prices.toJSON())))
 				.catch(error => cb(error as AppError, []));
 		},

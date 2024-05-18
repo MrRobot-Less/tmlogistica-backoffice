@@ -3,6 +3,7 @@ import { PATH } from '../../constants';
 import Coverage from '../../models/coverage';
 import { CalcService } from './service';
 import authRequiredMiddleware from '../../middlewares/auth-required';
+import MethodPrice from '../../models/method-price';
 
 const router = Router();
 router.use(authRequiredMiddleware);
@@ -103,7 +104,9 @@ router.get(
 router.get(
 	'/calc/shipping/add',
 	(req, res) => {		
-		res.render("dashboard/calc/shipping/[id]");
+		CalcService.methodPrice.getAll((_, prices) => {
+			res.render("dashboard/calc/shipping/[id]", { prices });
+		});
 	}
 );
 
@@ -127,7 +130,10 @@ router.get(
 	(req, res) => {
 		CalcService.shipping.getById(req.params.id, (_, shipping) => {
 			if (!shipping) return res.redirect(req.originalUrl);
-			res.render("dashboard/calc/shipping/[id]", { shipping });
+			CalcService.methodPrice.getAll((_, prices) => {
+				var priceSelected = shipping.methodPrices?.reduce((prev, curr, index, array) => ({ ...prev, [(array[index] as unknown as string).toString()]: ++index }), {}) || {};
+				res.render("dashboard/calc/shipping/[id]", { shipping, prices, priceSelected });
+			});
 		});
 	}
 );
