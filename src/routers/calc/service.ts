@@ -3,6 +3,7 @@ import Coverage, { CoverageDTO, CoverageFormat } from "../../models/coverage";
 import translations from '../../translations';
 import helpers from "../../helpers";
 import Shipping, { ShippingDTO, ShippingRequest } from "../../models/shipping";
+import MethodPrice, { MethodPriceDTO, MethodPriceRequest } from "../../models/method-price";
 
 export const CalcService = {
 	coverage: {
@@ -73,7 +74,7 @@ export const CalcService = {
 		}
 	},
 	shipping: {
-		getAll: function(cb: (error: AppError | null, coverages: ShippingDTO[]) => void) {
+		getAll: function(cb: (error: AppError | null, shippings: ShippingDTO[]) => void) {
 			Shipping.find({})
 				.then(shippings => cb(null, shippings.map(shipping => shipping.toJSON())))
 				.catch(error => cb(error as AppError, []));
@@ -83,7 +84,7 @@ export const CalcService = {
 				.then(shipping => cb(null, shipping?.toJSON() || null))
 				.catch(error => cb(error, null))
 		},
-		update: function(id: string, data: ShippingRequest, cb: (error: AppError | null, shipping: CoverageDTO | null) => void) {
+		update: function(id: string, data: ShippingRequest, cb: (error: AppError | null, shipping: ShippingDTO | null) => void) {
 			const shipping : Omit<ShippingDTO, '_id'> = {
 				arrivesInSaturday: data.arrivesInSaturday === 'yes',
 				deliveryTime: parseFloat(data.deliveryTime),
@@ -110,6 +111,52 @@ export const CalcService = {
 		},
 		deleteById: function(id: string, cb: (error: AppError | null) => void) {
 			Shipping.deleteOne({ _id: id })
+				.then(() => {
+					cb(null);
+				}).catch(cb)
+		},
+	},
+	methodPrice: {
+		getAll: function(cb: (error: AppError | null, methodPrice: MethodPriceDTO[]) => void) {
+			MethodPrice.find({})
+				.then(prices => cb(null, prices.map(prices => prices.toJSON())))
+				.catch(error => cb(error as AppError, []));
+		},
+		getById: function(id: string, cb: (error: AppError | null, price: MethodPriceDTO | null) => void) {
+			MethodPrice.findById(id)
+				.then(price => cb(null, price?.toJSON() || null))
+				.catch(error => cb(error, null))
+		},
+		update: function(id: string, data: MethodPriceRequest, cb: (error: AppError | null, MethodPrice: MethodPriceDTO | null) => void) {
+			const finalWeight = parseFloat(data.finalWeight);
+			const initialWeight = parseFloat(data.initialWeight);
+			if (finalWeight < initialWeight) { return cb(new AppError('O peso inicial não pode ser maior que o peso final'), null); }
+			const price : Omit<MethodPriceDTO, '_id'> = {
+				finalWeight,
+				initialWeight,
+				value: parseFloat(data.value)
+			}
+			MethodPrice.findOneAndUpdate({ _id: id }, price)
+				.then(MethodPrice => {
+					cb(null, MethodPrice?.toJSON() || null);
+				}).catch(error => cb(error, null));
+		},
+		create: function(data: MethodPriceRequest, cb: (error: AppError | null, MethodPrice: MethodPriceDTO | null) => void) {
+			const finalWeight = parseFloat(data.finalWeight);
+			const initialWeight = parseFloat(data.initialWeight);
+			if (finalWeight < initialWeight) { return cb(new AppError('O peso inicial não pode ser maior que o peso final'), null); }
+			const price : Omit<MethodPriceDTO, '_id'> = {
+				finalWeight,
+				initialWeight,
+				value: parseFloat(data.value)
+			}
+			MethodPrice.create(price)
+				.then(MethodPrice => {
+					cb(null, MethodPrice?.toJSON() || null);
+				}).catch(error => cb(error, null));
+		},
+		deleteById: function(id: string, cb: (error: AppError | null) => void) {
+			MethodPrice.deleteOne({ _id: id })
 				.then(() => {
 					cb(null);
 				}).catch(cb)

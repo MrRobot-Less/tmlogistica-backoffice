@@ -14,6 +14,8 @@ router.get(
 	}
 );
 
+// Coverage Model
+
 router.get(
 	'/calc/coverage',
 	(req, res) => {
@@ -87,6 +89,8 @@ router.get(
 	}
 );
 
+// Shipping Model
+
 router.get(
 	'/calc/shipping',
 	(req, res) => {
@@ -152,6 +156,76 @@ router.get(
 				req.flash('success_msg', 'Envio removida com sucesso!');
 			}
 			res.redirect('/dashboard/calc/shipping');
+		});
+	}
+);
+
+// Method Price Model
+
+router.get(
+	'/calc/method-price',
+	(req, res) => {
+		CalcService.methodPrice.getAll((error, methodPrices) => {
+			res.render("dashboard/calc/method-price/index", { methodPrices });
+		});
+	}
+);
+
+router.get(
+	'/calc/method-price/add',
+	(req, res) => {		
+		res.render("dashboard/calc/method-price/[id]");
+	}
+);
+router.post(
+	'/calc/method-price/add',
+	(req, res) => {		
+		CalcService.methodPrice.create(req.body, (error, methodPrice) => {
+			if (error || !methodPrice) {
+				req.flash('error_msg', error?.message || 'Não foi possível salvar esse preço.');
+				return res.redirect('/dashboard/calc/method-price');
+			}
+
+			req.flash('success_msg', 'Preço salvo com sucesso!');
+			res.redirect('/dashboard/calc/method-price/' + methodPrice?._id.toString())
+		});
+	}
+);
+
+router.get(
+	'/calc/method-price/:id',
+	(req, res) => {
+		CalcService.methodPrice.getById(req.params.id, (_, methodPrice) => {
+			if (!methodPrice) return res.redirect(req.originalUrl);
+			res.render("dashboard/calc/method-price/[id]", { methodPrice });
+		});
+	}
+);
+
+router.post(
+	'/calc/method-price/:id',
+	(req, res) => {		
+		CalcService.methodPrice.update(req.params.id, req.body, (error, methodPrice) => {
+			if (error || !methodPrice) {
+				req.flash('error_msg', error?.message || 'Não foi possível salvar esse preço.');
+				return res.redirect('/dashboard/calc/method-price');
+			}
+			req.flash('success_msg', 'Preço salvo com sucesso!');
+			res.redirect('/dashboard/calc/method-price/' + methodPrice?._id.toString())
+		});
+	}
+);
+
+router.get(
+	'/calc/method-price/:id/delete',
+	(req, res) => {
+		CalcService.methodPrice.deleteById(req.params.id, (error) => {
+			if (error) {
+				req.flash('error_msg', error.message);
+			} else {
+				req.flash('success_msg', 'Envio removida com sucesso!');
+			}
+			res.redirect('/dashboard/calc/method-price');
 		});
 	}
 );

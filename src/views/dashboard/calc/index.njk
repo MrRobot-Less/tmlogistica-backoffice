@@ -1,9 +1,9 @@
 {% extends "templates/dashboard-template.njk" %}
 {% block contentpage %}
-<div class="flex md:flex-row max-sm:flex-col md:space-x-2 max-sm:space-y-2 relative max-h-[600px]">
+<div class="grid md:grid-cols-2 max-sm:grid-cols-1 gap-2 relative *:h-[300px]">
 	<div
 		class="group relative cursor-pointer w-full overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:rounded-lg sm:px-10">
-		<div class="relative z-10 mx-auto max-w-md">
+		<div class="relative z-10 max-w-md">
 			<span class="relative grid h-20 w-20 place-items-center rounded-full bg-blue-500 transition-all duration-300 group-hover:bg-blue-400">
 				<span class="absolute -z-10 h-20 w-20 rounded-full bg-blue-500 transition-all duration-300 group-hover:scale-[10]"></span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24"><g fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M11.307 9.739L15 9l-.739 3.693a2 2 0 0 1-1.568 1.569L9 15l.739-3.693a2 2 0 0 1 1.568-1.568"/></g></svg>
@@ -24,7 +24,7 @@
 	</div>
 	<div
 		class="group relative cursor-pointer w-full overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:rounded-lg sm:px-10">
-		<div class="relative z-10 mx-auto max-w-md">
+		<div class="relative z-10 max-w-md">
 			<span class="relative grid h-20 w-20 place-items-center rounded-full bg-blue-500 transition-all duration-300 group-hover:bg-blue-400">
 				<span class="absolute -z-10 h-20 w-20 rounded-full bg-blue-500 transition-all duration-300 group-hover:scale-[10]"></span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 32 32"><path fill="white" d="M0 6v2h19v15h-6.156c-.446-1.719-1.992-3-3.844-3c-1.852 0-3.398 1.281-3.844 3H4v-5H2v7h3.156c.446 1.719 1.992 3 3.844 3c1.852 0 3.398-1.281 3.844-3h8.312c.446 1.719 1.992 3 3.844 3c1.852 0 3.398-1.281 3.844-3H32v-8.156l-.063-.157l-2-6L29.72 10H21V6zm1 4v2h9v-2zm20 2h7.281L30 17.125V23h-1.156c-.446-1.719-1.992-3-3.844-3c-1.852 0-3.398 1.281-3.844 3H21zM2 14v2h6v-2zm7 8c1.117 0 2 .883 2 2s-.883 2-2 2s-2-.883-2-2s.883-2 2-2m16 0c1.117 0 2 .883 2 2s-.883 2-2 2s-2-.883-2-2s.883-2 2-2"/></svg>
@@ -37,6 +37,27 @@
 			<div class="pt-5 text-base font-semibold leading-7">
 				<p>
 					<a href="/dashboard/calc/shipping" class="text-sky-500 transition-all duration-300 group-hover:text-white">Acessar
+						&rarr;
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div
+		class="group relative cursor-pointer w-full overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:rounded-lg sm:px-10">
+		<div class="relative z-10 max-w-md">
+			<span class="relative grid h-20 w-20 place-items-center rounded-full bg-blue-500 transition-all duration-300 group-hover:bg-blue-400">
+				<span class="absolute -z-10 h-20 w-20 rounded-full bg-blue-500 transition-all duration-300 group-hover:scale-[10]"></span>
+				<svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24"><g fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"/><path d="M14.8 9A2 2 0 0 0 13 8h-2a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4h-2a2 2 0 0 1-1.8-1M12 7v10"/></g></svg>
+			</span>
+			<div
+				class="flex flex-col space-y-2 pt-5 text-base text-gray-600 transition-all duration-300 group-hover:text-white/90">
+				<span class="text-2xl">Preço</span>
+				<span>Veja a relação de preço e peso aqui!</span>
+			</div>
+			<div class="pt-5 text-base font-semibold leading-7">
+				<p>
+					<a href="/dashboard/calc/method-price" class="text-sky-500 transition-all duration-300 group-hover:text-white">Acessar
 						&rarr;
 					</a>
 				</p>

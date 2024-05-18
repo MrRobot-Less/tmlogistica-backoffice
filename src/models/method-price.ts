@@ -2,17 +2,15 @@ import mongoose from "../database";
 
 export interface MethodPriceDTO {
 	_id: string;
-	initialPostalCode: number;
-	finalPostalCode: number;
-	digit: number;
-	type: string;
+	initialWeight: number;
+	finalWeight: number;
+	value: number;
 }
 
-export interface MethodPriceFormat {
-	_id: string;
-	initialPostalCode: string;
-	finalPostalCode: string;
-	type: string;	
+export interface MethodPriceRequest {
+	initialWeight: string;
+	finalWeight: string;
+	value: string;
 }
 
 const MethodPriceSchema = new mongoose.Schema({
