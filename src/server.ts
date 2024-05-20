@@ -4,6 +4,7 @@ import nunjucks from 'nunjucks';
 import cookieParser from 'cookie-parser';
 import flash from 'connect-flash';
 import session from 'express-session';
+import cors from 'cors';
 
 import errorHandle from './middlewares/error';
 import router from './routers';
@@ -15,6 +16,8 @@ const app = express();
 app.use(express.static("./public"));
 
 // decoded
+
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
