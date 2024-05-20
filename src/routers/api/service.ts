@@ -50,7 +50,7 @@ export const APIService = {
 			getValue: async (productValue: string, pricesId: any[], weight: string, percentageInsurance: number) => {
 				const price = await APIService.calculate.TMShipping.getPriceWeight(pricesId, weight);
 				if (!price) { throw new Error('price weight not found'); }
-				return price.value + (parseFloat(productValue ?? 0) / 100) * percentageInsurance;
+				return price.value + (parseFloat(productValue.replace('.', '') ?? 0) / 100) * percentageInsurance;
 			},
 			formatDeadlineDelivery: (deliveryTime: number) => {
 				if (deliveryTime === 0) { return 'Entrega no mesmo dia'; }
@@ -62,6 +62,7 @@ export const APIService = {
 				return `${helpers.decimalToFraction(deliveryTime)} Dia útil`;
 			},
 			calc: (data: IPayloadCalculate, cb: (error: AppError | null, shippings: ShippingResponse[]) => void) => {
+				if (!data['cep-origin'] || !data['cep-target']) { return cb(new AppError('empty zipcode.'), fallbackShippingResponse); }
 				Promise.all([
 					APIService.calculate.TMShipping.getCoverage(data["cep-origin"]),
 					APIService.calculate.TMShipping.getCoverage(data["cep-target"])

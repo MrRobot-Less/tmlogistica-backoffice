@@ -11,13 +11,14 @@ import router from './routers';
 
 const PORT = process.env.SERVER_PORT || 3000;
 const app = express();
+app.use(cors({
+    origin: '*'
+}));
 
 // Configurando a pasta public.
 app.use(express.static("./public"));
 
 // decoded
-
-app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
