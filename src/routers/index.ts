@@ -2,6 +2,7 @@ import { Router } from "express";
 import * as AuthRouter from "./auth";
 import * as DashboardRouter from "./dashboard";
 import * as CalcRouter from "./calc";
+import * as APIRouter from "./api";
 
 import authMiddleware from "../middlewares/auth";
 import cookieMiddleware from "../middlewares/cookie";
@@ -12,6 +13,7 @@ const router = Router();
 
 // theses routers bellow do not need authentication
 // ... Homepage, for example
+router.use(PATH.api, APIRouter.default);
 
 // all routers below need authentication
 router.use(cookieMiddleware);

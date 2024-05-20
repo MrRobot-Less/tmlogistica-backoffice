@@ -502,20 +502,20 @@ video {
   --tw-contain-style:  ;
 }
 .scrollbar::-webkit-scrollbar {
-	  width: 15px;
-	  height: 15px;
+	  width: 8px;
+	  height: 8px;
 	}
 .scrollbar::-webkit-scrollbar-track {
 	  border-radius: 100vh;
-	  background: #f7f4ed;
+	  background: #2f66ff83;
 	}
 .scrollbar::-webkit-scrollbar-thumb {
-	  background: #e0cbcb;
+	  background: #1a43cb;
 	  border-radius: 100vh;
-	  border: 3px solid #f6f7ed;
+	  border: 2px solid #2566f3;
 	}
 .scrollbar::-webkit-scrollbar-thumb:hover {
-	  background: #c0a0b9;
+	  background: #1a43cbe5;
 	}
 .pointer-events-none {
   pointer-events: none;
