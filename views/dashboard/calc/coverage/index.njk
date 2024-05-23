@@ -1,0 +1,42 @@
+{% extends "templates/dashboard-template.njk" %}
+{% block contentpage %}
+
+<a class="block ml-auto mb-3 px-6 py-2 w-fit text-center text-white bg-blue-500 border border-blue-500 rounded hover:bg-blue-600 outline-none"
+    href="/dashboard/calc/coverage/add">
+    <i class="fas fa-add"></i>
+    Adicionar
+</a>
+{% if coverages.length %}
+<div class="shadow-lg overflow-hidden">
+    <table class="w-full table-fixed">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold">CEP Início</th>
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold">CEP Final</th>
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold">Zona</th>
+				<th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold">Ações</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white">
+            {% for coverage in coverages %}
+            <tr>
+                <td class="py-4 px-6 border-b border-gray-200">{{coverage.initialPostalCode}}</td>
+                <td class="py-4 px-6 border-b border-gray-200 truncate">{{coverage.finalPostalCode}}</td>
+                <td class="py-4 px-6 border-b border-gray-200">{{coverage.type}}</td>
+				<td class="py-4 px-6 border-b border-gray-200 flex space-x-2">
+					<a class="w-fit bg-blue-500 py-2 px-2.5 my-4 rounded transition duration-200 bg-gradient-to-r hover:from-blue-600 hover:to-blue-600 text-white" href="/dashboard/calc/coverage/{{coverage._id}}">
+                    	<i class="fas fa-pen"></i><span class="ml-2 max-lg:hidden">Alterar</span>
+                	</a>
+					<a class="w-fit bg-red-500 py-2 px-2.5 my-4 rounded transition duration-200 bg-gradient-to-r hover:from-red-800 hover:to-red-800 text-white" href="/dashboard/calc/coverage/{{coverage._id}}/delete">
+                    	<i class="fas fa-trash"></i><span class="ml-2 max-lg:hidden">Excluir</span>
+                	</a>
+				</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<span class="block px-4 py-3 font-medium bg-gray-200">Nenhuma cobertura em sua base de dados</span>
+{% endif%}
+{% endblock %}

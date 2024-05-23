@@ -1,0 +1,36 @@
+{% extends "templates/dashboard-template.njk" %}
+{% block contentpage %}
+<form method="post" class="">
+	<a class='block md:max-w-3xl mx-auto bg-white py-2 px-10 mb-2 rounded-md underline' href="/dashboard/calc/coverage">
+		<i class="fas fa-arrow-left mr-2"></i>Voltar
+	</a>
+	<div class="block md:max-w-3xl mx-auto bg-white p-10 rounded-md *:py-2.5">
+		<div>
+			<label for="initialPostalCode" class="block text-sm text-gray-900 font-bold">CEP Origem</label>
+			<input value="{{ coverage.initialPostalCode }}" name="initialPostalCode" id="initialPostalCode" required="true" type="text" autocomplete="N/A" class="border invalid::border-red-500 cep block w-full rounded-md py-1 px-2 shadow-sm focus:border-sky-500">
+		</div>
+		<div>
+			<label for="finalPostalCode" class="block text-sm text-gray-900 font-bold">CEP Origem</label>
+			<input value="{{ coverage.finalPostalCode }}" name="finalPostalCode" id="finalPostalCode" required="true" type="text" autocomplete="N/A" class="border invalid::border-red-500 cep block w-full rounded-md py-1 px-2 shadow-sm focus:border-sky-500">
+		</div>
+		<div class="max-w-32">
+			<label for="type" class="block text-sm text-gray-900 font-bold">Zona</label>
+			<select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+				<option value="SP1" {% if coverage.type === 'SP1' or not coverage.type %} selected {% endif %}>SP1</option>
+				<option value="SP2" {% if coverage.type === 'SP2'%} selected {% endif %}>SP2</option>
+			</select>
+		</div>
+		<div class="border-t invalid::border-red-500-t border-gray-200 flex space-x-2 justify-end">
+			<button class="w-fit bg-blue-500 py-2 px-2.5 rounded transition duration-200 bg-gradient-to-r hover:from-blue-600 hover:to-blue-600 text-white" type="submit">
+				<i class="fas fa-save"></i><span class="ml-2 max-lg:hidden">{% if coverage %}Salvar{%else%}Adicionar{% endif%}</span>
+			</button>
+			{% if coverage %}
+			<a class="w-fit bg-red-500 py-2 px-2.5 rounded transition duration-200 bg-gradient-to-r hover:from-red-800 hover:to-red-800 text-white" href="/dashboard/calc/coverage/{{coverage._id}}/delete">
+				<i class="fas fa-trash"></i><span class="ml-2 max-lg:hidden">Excluir</span>
+			</a>
+			{% endif %}
+		</div>
+	</div>
+</form>
+
+{% endblock %}

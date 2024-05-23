@@ -3,7 +3,6 @@ tmp
 *.tmp*
 *.log
 .changelog
-coverage
 .env
 .DS_Store
 src/.DS_Store
