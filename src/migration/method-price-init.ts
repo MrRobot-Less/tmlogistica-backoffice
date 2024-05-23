@@ -1,5 +1,5 @@
 import MethodPrice, { MethodPriceDTO } from "../models/method-price";
-var mockMethodPrice : MethodPriceDTO[]  = require('./data/method-price.json');
+var mockMethodPrice : MethodPriceDTO[]  = require('../../data/method-price.json');
 
 var chain = Promise.resolve();
 mockMethodPrice.map(mock => {

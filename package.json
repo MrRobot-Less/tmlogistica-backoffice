@@ -36,9 +36,8 @@
 	},
 	"scripts": {
 		"tailwind:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css",
-		"dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
 		"build": "npx tsc --outDir build",
-		"start": "node --env-file=./.env build/server.js"
+		"start": "node build/server.js"
 	},
 	"engines": {
 		"node": "20.13.1",

@@ -8,6 +8,7 @@ declare global {
 		DB_USER: string;
 		DB_PASS: string;
 		SECRET: string;
+		MONGO_URI: string;
 	  }
 	}
 }
