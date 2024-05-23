@@ -36,7 +36,7 @@
 	},
 	"scripts": {
 		"tailwind:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css",
-		"build": "npx tsc --outDir build && npm run start",
+		"build": "npx tsc --outDir build",
 		"start": "node build/index.js"
 	},
 	"engines": {
