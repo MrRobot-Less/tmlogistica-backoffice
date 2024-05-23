@@ -32,7 +32,7 @@ app.use(flash());
 
 // Config da template engine.
 app.set("view engine", "njk");
-nunjucks.configure("./src/views", {
+nunjucks.configure("views", {
     express:app,
     autoescape:false,
     noCache:true,
