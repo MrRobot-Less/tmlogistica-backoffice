@@ -9,7 +9,7 @@ import cors from 'cors';
 import errorHandle from './middlewares/error';
 import router from './routers';
 
-const PORT = process.env.SERVER_PORT || 3000;
+const PORT = process.env.SERVER_PORT || 3500;
 const app = express();
 app.use(cors({
     origin: '*'
