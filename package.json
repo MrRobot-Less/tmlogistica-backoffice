@@ -35,9 +35,10 @@
 		"typescript": "^5.3.3"
 	},
 	"scripts": {
-		"tailwind:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css",
+		"tailwind:css": "npx tailwindcss -i ./public/stylesheets/tailwind.css -o ./public/stylesheets/style.css --watch",
 		"build": "npx tsc --outDir build",
-		"start": "npx tsc --outDir build && node build/index.js"
+		"start": "npx tsc --outDir build && node build/index.js",
+		"dev": "npx tsc --outDir build && node --env-file=.env build/index.js"
 	},
 	"engines": {
 		"node": "20.13.1",

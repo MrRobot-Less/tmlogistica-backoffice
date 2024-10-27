@@ -1,6 +1,5 @@
 import { AppError } from "../../dtos/error";
 import Coverage, { CoverageDTO, CoverageFormat } from "../../models/coverage";
-import translations from '../../translations';
 import helpers from "../../helpers";
 import Shipping, { ShippingDTO, ShippingRequest } from "../../models/shipping";
 import MethodPrice, { MethodPriceDTO, MethodPriceRequest } from "../../models/method-price";

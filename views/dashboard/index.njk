@@ -1,4 +1,173 @@
 {% extends "templates/dashboard-template.njk" %}
 {% block contentpage %}
-	
+<div class="bg-white flex flex-col p-5" style="background-color: #fff; padding: 1rem">
+    <h1 class="mb-3">Relatório de Requisição/Cotações </h1>
+    <div class="flex space-x-2">
+        <a href='/dashboard?period=daily' class="border px-4 py-1 rounded-md cursor-pointer {% if period === 'daily'%}selected-filter{% endif %}">Diário</a>
+        <a href='/dashboard?period=weekly' class="border px-4 py-1 rounded-md cursor-pointer {% if period === 'weekly'%}selected-filter{% endif %}">Semanal</a>
+        <a href='/dashboard?period=monthly' class="border px-4 py-1 rounded-md cursor-pointer {% if period === 'monthly'%}selected-filter{% endif %}">Mensal</a>
+    </div>
+    <canvas id="quotesLine" style="width:100%;"></canvas>
+    <h1 class="mt-2">Relação de Cotação por área</h1>
+    <canvas id="quotesBar" style="width:100%;"></canvas>
+</div>
+<script>
+const xvalues = ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016'];
+new Chart("quotesLine", {
+  type: "line",
+  data: {
+    labels: {{ quoteLine.x | dump }},
+    datasets: [{
+      label: 'Cotações feitas',
+      data: {{ quoteLine.y | dump }},
+      borderColor: "green"
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: ''
+      }
+    }
+  },
+});
+</script>
+
+<script>
+var barColors = [
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(255, 159, 64, 0.2)',
+    'rgba(255, 205, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(201, 203, 207, 0.2)',
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(255, 64, 64, 0.2)',
+    'rgba(255, 128, 0, 0.2)',
+    'rgba(255, 255, 0, 0.2)',
+    'rgba(0, 255, 128, 0.2)',
+    'rgba(0, 255, 255, 0.2)',
+    'rgba(0, 128, 255, 0.2)',
+    'rgba(128, 0, 255, 0.2)',
+    'rgba(255, 0, 128, 0.2)',
+    'rgba(255, 0, 0, 0.2)',
+    'rgba(192, 192, 192, 0.2)',
+    'rgba(128, 128, 128, 0.2)',
+    'rgba(255, 20, 147, 0.2)',
+    'rgba(75, 0, 130, 0.2)',
+    'rgba(255, 105, 180, 0.2)',
+    'rgba(100, 149, 237, 0.2)',
+    'rgba(127, 255, 0, 0.2)',
+    'rgba(240, 230, 140, 0.2)',
+    'rgba(255, 192, 203, 0.2)',
+    'rgba(100, 100, 255, 0.2)',
+    'rgba(255, 165, 0, 0.2)',
+    'rgba(50, 205, 50, 0.2)',
+    'rgba(0, 0, 255, 0.2)',
+    'rgba(255, 20, 147, 0.2)',
+    'rgba(255, 215, 0, 0.2)',
+    'rgba(75, 0, 130, 0.2)',
+    'rgba(240, 128, 128, 0.2)',
+    'rgba(70, 130, 180, 0.2)',
+    'rgba(160, 32, 240, 0.2)',
+    'rgba(244, 164, 96, 0.2)',
+    'rgba(0, 139, 139, 0.2)',
+    'rgba(255, 228, 196, 0.2)',
+    'rgba(221, 160, 221, 0.2)',
+    'rgba(218, 165, 32, 0.2)',
+    'rgba(255, 0, 255, 0.2)',
+    'rgba(127, 255, 212, 0.2)',
+    'rgba(255, 239, 0, 0.2)',
+    'rgba(173, 255, 47, 0.2)',
+    'rgba(255, 160, 122, 0.2)',
+    'rgba(255, 140, 0, 0.2)',
+    'rgba(255, 250, 205, 0.2)',
+    'rgba(32, 178, 170, 0.2)',
+    'rgba(255, 182, 193, 0.2)',
+    'rgba(205, 92, 92, 0.2)',
+    'rgba(139, 69, 19, 0.2)',
+    'rgba(220, 20, 60, 0.2)',
+    'rgba(173, 216, 230, 0.2)',
+    'rgba(152, 251, 152, 0.2)',
+    'rgba(255, 160, 122, 0.2)',
+    'rgba(135, 206, 235, 0.2)',
+    'rgba(240, 230, 140, 0.2)',
+    'rgba(255, 248, 220, 0.2)',
+    'rgba(255, 140, 105, 0.2)',
+    'rgba(255, 99, 71, 0.2)',
+    'rgba(173, 216, 230, 0.2)',
+    'rgba(0, 255, 255, 0.2)',
+    'rgba(127, 255, 0, 0.2)',
+    'rgba(139, 0, 139, 0.2)',
+    'rgba(238, 232, 170, 0.2)',
+    'rgba(255, 105, 180, 0.2)',
+    'rgba(238, 130, 238, 0.2)',
+    'rgba(255, 69, 0, 0.2)',
+    'rgba(50, 205, 50, 0.2)',
+    'rgba(64, 224, 208, 0.2)',
+    'rgba(123, 104, 238, 0.2)',
+    'rgba(255, 255, 224, 0.2)',
+    'rgba(135, 206, 250, 0.2)',
+    'rgba(218, 165, 32, 0.2)',
+    'rgba(240, 128, 128, 0.2)',
+    'rgba(255, 228, 196, 0.2)',
+    'rgba(128, 0, 128, 0.2)',
+    'rgba(238, 232, 170, 0.2)',
+    'rgba(210, 105, 30, 0.2)',
+    'rgba(127, 255, 212, 0.2)',
+    'rgba(0, 250, 154, 0.2)',
+    'rgba(64, 224, 208, 0.2)',
+    'rgba(148, 0, 211, 0.2)',
+    'rgba(255, 99, 71, 0.2)',
+    'rgba(95, 158, 160, 0.2)',
+    'rgba(255, 20, 147, 0.2)',
+    'rgba(178, 34, 34, 0.2)',
+    'rgba(0, 206, 209, 0.2)',
+    'rgba(135, 206, 235, 0.2)',
+    'rgba(255, 140, 0, 0.2)',
+    'rgba(255, 239, 0, 0.2)',
+    'rgba(245, 222, 179, 0.2)',
+    'rgba(222, 184, 135, 0.2)',
+    'rgba(238, 99, 99, 0.2)',
+    'rgba(255, 110, 180, 0.2)',
+    'rgba(165, 42, 42, 0.2)',
+    'rgba(0, 128, 0, 0.2)',
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(0, 191, 255, 0.2)',
+    'rgba(220, 20, 60, 0.2)',
+    'rgba(135, 206, 250, 0.2)',
+    'rgba(255, 228, 196, 0.2)'
+];
+
+barColorsBorder = barColors.map(c => c.replace(', 0.2', ''));
+
+new Chart("quotesBar", {
+  type: "bar",
+  data: {
+    labels: {{ quoteBar.x | dump }},
+    datasets: [{
+      label: 'Cotações feitas por Zona',
+      data: {{ quoteBar.y | dump }},
+      backgroundColor: barColors,
+      borderColor: barColorsBorder,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+  },
+});
+</script>
 {% endblock %}
